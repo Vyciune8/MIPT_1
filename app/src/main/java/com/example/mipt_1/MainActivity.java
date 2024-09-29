@@ -1,5 +1,9 @@
  package com.example.mipt_1;
 
+import static com.example.mipt_1.R.id.btnChangeColorText;
+
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
     TextView tvMain;
     Button btnChangeClickText;
+    Button btnChangeColorText;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tvMain.setText("Bye world!");
+            }
+        });
+        btnChangeColorText = findViewById(R.id.btnChangeColorText);
+        tvMain = findViewById(R.id.tvMain);
+
+        btnChangeColorText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvMain.setTextColor(Color.RED);
             }
         });
 
