@@ -2,6 +2,7 @@
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -11,6 +12,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    TextView tvMain;
+    Button btnChangeClickText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +26,15 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-    }
+        btnChangeClickText = findViewById(R.id.btnChangeText);
+        tvMain = findViewById(R.id.tvMain);
 
-    public void btnChangetextClick(View view) {
-        TextView tvMAin = (TextView)findViewById(R.id.tvMain);
-        tvMAin.setText("Hello");
+        btnChangeClickText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvMain.setText("Bye world!");
+            }
+        });
+
     }
 }
